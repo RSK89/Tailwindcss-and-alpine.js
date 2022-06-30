@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div x-data="{count:0}">
+        <button @click="count--" >-1</button>
+        <button @click="count++" disabled>+1</button>
+        The count is <strong x-text="count"></strong>
+        <button @click="count=0">Reset</button>
+        <div x-show="count===0"><strong>Your count is Zero Now </strong>  </div>
+        <div x-show="count==5" >You reached maximum count is Five </div>
+    </div>
+    <div x-data="{name:' ',
+                 email:''}" x-init="$refs.input.focus()">
+        <input type="text" class="bg-gray-100 "  x-ref="input" x-model="name">
+        <input type="mail" x-model="email" >
+             Your Name is :<a x-text="name"></a>
+             Your Email id is :<a x-text="email"></a>
+
+    </div>
+    <div x-data="{ open: false }">
+        <button @click="open =!open" class="bg-red-100 text-white font-bold" @mouseover="open=!open">Digital Marketing></button>
+     
+        <span x-show="open" @mouseout="open =!open" class="pt-4">
+          <div class="container w-60 h-max bg-blue-100 mt-4 ">Digital Markeing is so easy Get more profit</div>
+        </span>
+    </div>
+    
+</body>
+</html>
